@@ -48,8 +48,8 @@ class File:
     def delete(directory, file_name):
         # Delete a file.
         try:
-            print(f"File `{file_name}` in `{directory} was deleted.")
             os.remove(f"{directory}{file_name}")
+            print(f"File `{file_name}` in `{directory} was deleted.")
         except FileNotFoundError:
             print(f"File `{file_name}` not found in `{directory}`.")
 
