@@ -7,13 +7,13 @@ class File:
     def read(directory, file_name, binary=False):
         # Read the contents of a file and return it as a string.
         if binary:
-            with open(f"{directory}{file_name}", "rb") as file:
-                print(file.read())
-                file.close()
+            with open(f"{directory}{file_name}", "rb") as f:
+                print(f.read())
+                f.close()
         else:
-            with open(f"{directory}{file_name}", "r") as file:
-                print(file.read())
-                file.close()
+            with open(f"{directory}{file_name}", "r") as f:
+                print(f.read())
+                f.close()
 
     @staticmethod
     def write(directory, file_name, content, binary=False):
