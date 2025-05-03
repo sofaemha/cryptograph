@@ -1,5 +1,5 @@
 from system.py.core import os, fs
-from system.control.log import log
+from system.controller.log import log
 
 
 class Folder:

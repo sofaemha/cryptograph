@@ -1,5 +1,5 @@
 from system.py.core import env, date
-from system.control.file import file
+from system.controller.file import file
 
 folder_public = env("FOLDER_PUBLIC")
 file_log = env("FILE_LOG")
