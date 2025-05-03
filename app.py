@@ -1,5 +1,6 @@
 from system.py.initialization import *
 from system.py.library import library
+from view.route import route
 
 
 class App:
@@ -22,6 +23,7 @@ class App:
             system.exit(1)
 
     def start(self):
+        route.root()
         print("Starting the application...")
 
 
