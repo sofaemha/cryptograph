@@ -4,20 +4,28 @@ from system.py.core import os, date
 class File:
 
     @staticmethod
-    def read(directory, file_name, binary=False):
+    def read(directory, file_name, close=True, binary=False):
         # Read the contents of a file and return it as a string.
-        if binary:
-            with open(f"{directory}{file_name}", "rb") as f:
-                content = f.read()
-                print(content)
-                f.close()
-                return content
+        if close:
+            if binary:
+                with open(f"{directory}{file_name}", "rb") as f:
+                    content = f.read()
+                    print(content)
+                    f.close()
+                    return content
+            else:
+                with open(f"{directory}{file_name}", "r") as f:
+                    content = f.read()
+                    print(content)
+                    f.close()
+                    return content
         else:
-            with open(f"{directory}{file_name}", "r") as f:
-                content = f.read()
-                print(content)
-                f.close()
-                return content
+            if binary:
+                f = open(f"{directory}{file_name}", "rb")
+                return f
+            else:
+                f = open(f"{directory}{file_name}", "r")
+                return f
 
     @staticmethod
     def write(directory, file_name, content=None, close=True, binary=False):
