@@ -1,0 +1,4 @@
+black==25.1.0
+pycryptodome==3.22.0
+python-dotenv==1.1.0
+TKinterModernThemes==1.10.4
