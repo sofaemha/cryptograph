@@ -12,9 +12,5 @@ class Route:
         import view.app.root as root
         return root.App(**self.options)
 
-    def about(self):
-        import view.app.about as about
-        return about.App(**self.options)
-
 
 route = Route()
