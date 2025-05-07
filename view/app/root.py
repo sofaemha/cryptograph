@@ -3,6 +3,7 @@ from system.py.tk import tk, tkt
 
 import view.app.about as about
 import view.app.encrypt as encrypt
+import view.app.decrypt as decrypt
 
 
 class App(tkt.ThemedTKinterFrame):
@@ -23,12 +24,11 @@ class App(tkt.ThemedTKinterFrame):
         self.panedWindow = self.PanedWindow("Paned Window Test")
 
         self.paneTop = self.panedWindow.addWindow()
-        self.paneTop.Label("AES File Locker", colspan=2)
+        self.paneTop.Label("AES-FL", colspan=2)
 
         self.menuFrame = self.paneTop.addLabelFrame("Data")
         self.menuFrame.AccentButton("Encrypt", command=self.execute, args=(encrypt,))
-        self.menuFrame.AccentButton("Decrypt", command=self.debugPrint, col=1)
-        self.menuFrame.AccentButton("Clear Data", command=self.debugPrint, colspan=2)
+        self.menuFrame.AccentButton("Decrypt", command=self.execute, args=(decrypt,), col=1)
 
         self.systemFrame = self.paneTop.addLabelFrame("System")
         self.systemFrame.AccentButton("Setting", command=self.debugPrint)
