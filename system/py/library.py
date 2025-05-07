@@ -1,4 +1,6 @@
 import importlib.util as library_hook
+
+from system.controller.sonner import sonner
 from system.py.core import system
 from system.controller.log import log
 from system.library.pycryptodome import pycryptodome
@@ -35,6 +37,7 @@ class Library:
             return True
         else:
             log.write(f"Can't find the `{module_name!r}` module")
+            sonner.ubuntu_library()
             return False
 
 
