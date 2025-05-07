@@ -1,12 +1,13 @@
-from system.controller.sonner import sonner
 from system.py.initialization import *
 from system.py.library import library
 from system.controller.folder import folder
+from system.controller.sonner import sonner
 from view.route import route
 
 PATH_ENCRYPT = env("PATH_ENCRYPT")
 PATH_DECRYPT = env("PATH_DECRYPT")
-PATH_KEY = env("PATH_KEY")
+FOLDER_PUBLIC = env("FOLDER_PUBLIC")
+
 
 class App:
     @staticmethod
@@ -32,7 +33,6 @@ class App:
     def setup():
         folder.create(PATH_ENCRYPT)
         folder.create(PATH_DECRYPT)
-        folder.create(PATH_KEY)
 
     def start(self):
         route.root()
@@ -41,6 +41,6 @@ class App:
 
 if __name__ == "__main__":
     app = App()
-    app.module()
     app.setup()
+    app.module()
     app.start()
