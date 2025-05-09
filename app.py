@@ -1,7 +1,6 @@
 from system.py.initialization import *
 from system.py.library import library
 from system.controller.folder import folder
-from system.controller.sonner import sonner
 from view.route import route
 
 PATH_ENCRYPT = env("PATH_ENCRYPT")
@@ -12,22 +11,12 @@ FOLDER_PUBLIC = env("FOLDER_PUBLIC")
 class App:
     @staticmethod
     def module():
-        # ! Module and function must be same order
-        module = [
-            "tkinter",
-            "Crypto",
-            "TKinterModernThemes",
-        ]  # Modules name stored in `sys.modules`
-        fn = [
-            "tkinter",
-            "pycryptodome",
-            "tkintertheme",
-        ]  # Functions to call on `system.library`
-        status = library.check(module, fn)
-        if not status:
-            log.write("Some libraries are missing")
-            sonner.ubuntu_library()
-            system.exit(1)
+        module = library.check()
+        if module:
+            log.write("All modules are installed.")
+        else:
+            log.write("Some modules are missing. Please install them manually.")
+            system.exit()
 
     @staticmethod
     def setup():
