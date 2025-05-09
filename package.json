@@ -1,0 +1,17 @@
+{
+  "name": "aes-file-locker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sofaemha/cryptograph.git"
+  },
+  "modules": [
+    "black",
+    "tkinter",
+    "Crypto",
+    "TKinterModernThemes"
+  ],
+  "private": false
+}
