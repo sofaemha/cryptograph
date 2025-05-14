@@ -1,7 +1,9 @@
+from system.controller.file import file
 from system.py.core import env
 
+
 PY_THEME = env("PY_THEME")
-PY_MODE = env("PY_MODE")
+PY_MODE = file.theme("get")
 
 
 class Route:
