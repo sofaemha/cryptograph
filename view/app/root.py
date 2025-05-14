@@ -4,6 +4,7 @@ from system.py.tk import tk, tkt
 import view.app.about as about
 import view.app.encrypt as encrypt
 import view.app.decrypt as decrypt
+import view.app.member as member
 
 
 class App(tkt.ThemedTKinterFrame):
@@ -31,7 +32,7 @@ class App(tkt.ThemedTKinterFrame):
         self.menuFrame.AccentButton("Decrypt", command=self.execute, args=(decrypt,), col=1)
 
         self.systemFrame = self.paneTop.addLabelFrame("System")
-        self.systemFrame.AccentButton("Setting", command=self.debugPrint)
+        self.systemFrame.AccentButton("Member", command=self.execute, args=(member,))
         self.systemFrame.AccentButton("About", command=self.execute, args=(about,), col=1)
         self.systemFrame.AccentButton("Exit", command=self.handleExit, colspan=2)
 
