@@ -1,4 +1,4 @@
-from system.py.core import os, date
+from system.py.core import os, date, env
 
 
 class File:
@@ -78,6 +78,36 @@ class File:
         # Get the last modified time of a file.
         return date.fromtimestamp(os.path.getmtime(f"{directory}{file_name}")).strftime(
             "%Y-%m-%d %H:%M:%S") if os.path.exists(directory) else None
+
+    @staticmethod
+    def theme(status):
+        # Get the environment variable for the file path.
+        if status == "change":
+            theme = env("PY_MODE")
+
+            with open(".env", "r+") as file:
+
+                file.seek(0, os.SEEK_END)
+                pos = file.tell() - 1
+
+                while pos > 0 and file.read(1) != "\n":
+                    pos -= 1
+                    file.seek(pos, os.SEEK_SET)
+
+                if pos > 0:
+                    file.seek(pos, os.SEEK_SET)
+                    file.truncate()
+                    file.write(f'\nPY_MODE="dark"') if theme == "light" else file.write(f'\nPY_MODE="light"')
+                    file.close()
+        elif status == "get":
+            with open(".env") as f:
+                for line in f:
+                    pass
+                last_line = line.split("=")[-1][1:-1]
+                f.close()
+                return last_line
+        else:
+            return None
 
 
 file = File()
