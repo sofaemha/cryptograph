@@ -11,6 +11,7 @@
     "black",
     "tkinter",
     "Crypto",
+    "dotenv",
     "TKinterModernThemes"
   ],
   "private": false
