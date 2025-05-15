@@ -101,7 +101,7 @@ class App(tkt.ThemedTKinterFrame):
 
     def tree_import(self):
         try:
-            filename = self.getfile()
+            filename = self.getfile("txt")
             if filename:
                 self.treeView.insert("", "end", text=filename, values=[file.timestamp(PATH_ENCRYPT, filename)])
                 alert.showinfo("System", f"File `{filename}` successfully added to tree view.")
