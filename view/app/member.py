@@ -21,9 +21,11 @@ class App(tkt.ThemedTKinterFrame):
         self.panedWindow = self.PanedWindow("Paned Window Test")
 
         self.paneTop = self.panedWindow.addWindow()
-        self.paneTop.Label("AES File Locker", colspan=2)
+        self.paneTop.Label("AES-FL : Member", colspan=2)
 
         self.member()
+        self.lecturer()
+        self.system()
 
         self.paneBottom = self.panedWindow.addWindow()
         self.paneBottom.Label(f"All Rights Reserved \u00A9 {date.now().year}", size=10, weight="normal")
@@ -35,9 +37,14 @@ class App(tkt.ThemedTKinterFrame):
         self.memberFrame.Text(
             "1. Sofa Machabba Haeta \n"
             "2. Adel Nayyan Amiva \n"
-            "3. Muhammad Helmy Fadhillah \n"
+            "3. Muhammad Helmy Fadhillah"
         )
 
+    def lecturer(self):
+        self.deanFrame = self.paneTop.addLabelFrame("Dosen Pembimbing")
+        self.deanFrame.Text(
+            "Gunawan, S.E., M.Kom"
+        )
     def system(self):
         self.systemFrame = self.paneTop.addLabelFrame("System")
-        self.systemFrame.AccentButton("Kembali", self.handleExit, widgetkwargs={"width": 45})
+        self.systemFrame.AccentButton("Kembali", self.handleExit, widgetkwargs={"width": 25})
