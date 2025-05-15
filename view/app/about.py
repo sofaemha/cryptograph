@@ -22,10 +22,11 @@ class App(tkt.ThemedTKinterFrame):
         self.panedWindow = self.PanedWindow("Paned Window Test")
 
         self.paneTop = self.panedWindow.addWindow()
-        self.paneTop.Label("AES File Locker", colspan=2)
+        self.paneTop.Label("AES-FL : About", colspan=2)
 
         self.description()
         self.feature()
+        self.system()
 
         self.paneBottom = self.panedWindow.addWindow()
         self.paneBottom.Label(f"All Rights Reserved \u00A9 {date.now().year}", size=10, weight="normal")
