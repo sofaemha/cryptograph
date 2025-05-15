@@ -1,3 +1,4 @@
+from PIL import ImageTk, Image
 from system.py.core import date
 from system.py.tk import tk, tkt
 
@@ -25,7 +26,13 @@ class App(tkt.ThemedTKinterFrame):
         self.panedWindow = self.PanedWindow("Paned Window Test")
 
         self.paneTop = self.panedWindow.addWindow()
-        self.paneTop.Label("AES-FL", colspan=2)
+
+        image_dark = ImageTk.PhotoImage(Image.open("view/image/logo-b.png").resize((200, 113)))
+        image_light = ImageTk.PhotoImage(Image.open("view/image/logo-w.png").resize((200, 113)))
+        if self.mode == "light":
+            self.paneTop.Label("", widgetkwargs={"image": image_dark})
+        else:
+            self.paneTop.Label("", widgetkwargs={"image": image_light})
 
         self.menuFrame = self.paneTop.addLabelFrame("Data")
         self.menuFrame.AccentButton("Encrypt", command=self.execute, args=(encrypt,))
